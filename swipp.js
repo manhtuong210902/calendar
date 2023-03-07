@@ -6,10 +6,16 @@ let startX = 0;
 let startY = 0;
 let isCheckdown = false;
 
+window.onload = () => {
+    video.load();
+    video.play();
+};
+
+const listVideos = ["./videos/video1.mp4", "./videos/video2.mp4", "./videos/video3.mp4"];
+let currentVideo = 0;
 container.addEventListener(
     "touchstart",
     function (event) {
-        console.log("touchstart");
         startX = event.touches[0].clientX;
         startY = event.touches[0].clientY;
         isCheckdown = true;
@@ -18,20 +24,17 @@ container.addEventListener(
 );
 
 container.addEventListener("touchmove", function (event) {
-    console.log("touchmove");
     // calculate the distance moved
     const distX = event.touches[0].clientX - startX;
     const distY = event.touches[0].clientY - startY;
 
     // detect horizontal left swipe
     if (Math.abs(distX) > Math.abs(distY) && distX < -50 && isCheckdown) {
-        console.log("aaa");
-        const filename = source.src.split("/").pop();
-        if (filename === "mmm.mp4") {
-            source.setAttribute("src", "./videos/video.mp4");
-        } else {
-            source.setAttribute("src", "./videos/mmm.mp4");
+        currentVideo += 1;
+        if (currentVideo === listVideos.length) {
+            currentVideo = 0;
         }
+        source.setAttribute("src", listVideos[currentVideo]);
         video.load();
         video.play();
         isCheckdown = false;
