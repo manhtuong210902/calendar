@@ -3,8 +3,6 @@ const today = document.querySelector(".today");
 function getToDay() {
     const date = new Date();
 
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
     let hours = date.getHours();
     let minutes = date.getMinutes();
     let second = date.getSeconds();
@@ -15,7 +13,7 @@ function getToDay() {
     minutes = minutes < 10 ? "0" + minutes : minutes;
     second = second < 10 ? "0" + second : second;
 
-    let currentDay = `Ngày ${day}/${month}, ${hours}:${minutes}:${second} ${ampm}`;
+    let currentDay = `${hours}:${minutes}:${second} ${ampm}`;
     today.innerHTML = currentDay;
 }
 
