@@ -10,7 +10,7 @@ let ball = {
     y: 200,
     dx: 2,
     dy: -2,
-    radius: 55,
+    radius: 60,
 };
 
 function drawBall() {
