@@ -6,13 +6,9 @@ let startX = 0;
 let startY = 0;
 let isCheckdown = false;
 
-window.onload = () => {
-    video.load();
-    video.play();
-};
-
 const listVideos = ["./videos/video1.mp4", "./videos/video2.mp4", "./videos/video3.mp4"];
 let currentVideo = 0;
+
 container.addEventListener(
     "touchstart",
     function (event) {
