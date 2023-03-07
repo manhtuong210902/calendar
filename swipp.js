@@ -6,21 +6,21 @@ let startX = 0;
 let startY = 0;
 let isCheckdown = false;
 
-container.addEventListener("mousedown", function (event) {
+container.addEventListener("touchstart", function (event) {
     console.log("touchstart");
     startX = event.clientX;
     startY = event.clientY;
     isCheckdown = true;
 });
 
-container.addEventListener("mousemove", function (event) {
+container.addEventListener("touchmove", function (event) {
     console.log("touchmove");
     // calculate the distance moved
     const distX = event.clientX - startX;
     const distY = event.clientY - startY;
 
     // detect horizontal left swipe
-    if (Math.abs(distX) > Math.abs(distY) && distX < -50 && isCheckdown) {
+    if (Math.abs(distX) > Math.abs(distY) && distX < -50) {
         const filename = source.src.split("/").pop();
         if (filename === "mmm.mp4") {
             source.setAttribute("src", "./videos/video.mp4");
